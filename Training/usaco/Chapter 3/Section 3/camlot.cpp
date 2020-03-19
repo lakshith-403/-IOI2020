@@ -70,26 +70,43 @@ int main(){
   for(int i=1;i<=R;i++)
     for(int j=1;j<=C;j++)
       BFS(i,j);
-
-  int MIN = INT_MAX;
+  int e[R+1][C+1];
+  int minIndex[R+1][C+1];
+  for(int r=1;r<=R;r++)
+    for(int c=1;c<=C;c++){
+      int localMin = INT_MAX;
+      int minI = -1;
+      int count = 0;
+      for(pair<int,int> p : knights){
+        int temp = knightDis[p.first][p.second][r][c] + max(delta(king.first,r),delta(king.second,c));
+        if(temp < localMin){
+          localMin = temp;
+          e[r][c] = temp;
+          minI = count;
+        }
+        count++;
+      }
+      minIndex[r][c] = minI;
+    }
+  int k[R+1][C+1];
+  for(int r=1;r<=R;r++)
+    for(int c=1;c<=C;c++){
+      int sum = 0;
+      for(pair<int,int> p : knights)
+        sum += knightDis[p.first][p.second][r][c];
+      k[r][c] = sum;
+    }
+    int MIN = INT_MAX;
   for(int fr=1;fr<=R;fr++)
     for(int fc=1;fc<=C;fc++)
       for(int pr=1;pr<=R;pr++)
         for(int pc=1;pc<=C;pc++){
-          int D = 0;
-          for(pair<int,int> knight : knights){
-            D += knightDis[knight.first][knight.second][fr][fc];
-          }
-          int d;
-          int e;
-          int localMin = INT_MAX;
-          for(int i=0;i<knights.size();i++){
-            d = D - knightDis[knights.at(i).first][knights.at(i).second][fr][fc];
-            e = knightDis[knights.at(i).first][knights.at(i).second][pr][pc] + knightDis[pr][pc][fr][fc] + max(delta(pr,fr),delta(fc,pc));
-            localMin = min(localMin,d+e);
-          }
-          if(knights.size()==0)localMin = max(delta(pr,fr),delta(fc,pc));
-          MIN = min(MIN,localMin);
+          int ans;
+          if(knights.size()==0)ans = max(delta(pr,fr),delta(fc,pc));
+          else
+          ans = k[fr][fc] - knightDis[knights.at(minIndex[pr][pc]).first][knights.at(minIndex[pr][pc]).second][fr][fc] + e[pr][pc] + knightDis[pr][pc][fr][fc];
+          // if(ans<MIN)cout << fr << "<>" << fc << " " << pr << "<>" << pc << "->" << minIndex[pr][pc] << endl;
+          MIN = min(ans,MIN);
         }
   out << MIN << endl;
 }
