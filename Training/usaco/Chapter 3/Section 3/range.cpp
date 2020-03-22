@@ -1,3 +1,9 @@
+/*
+ID: lakshit4
+PROG: range
+LANG: C++
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -11,7 +17,6 @@ int Count[251];
 int N;
 
 void BFS(int i,int j){
-  cout << i << "<>" << j << endl;
   queue<pair<int,int>> q;
   q.push({i,j});
   dis[i][j] = 0;
@@ -21,35 +26,37 @@ void BFS(int i,int j){
     for(int c=0;c<N;c++)
       visited[r][c] = false;
   visited[i][j] = true;
+  int n=3;
+  int C = 0;
   while(!q.empty()){
     pair<int,int> p = q.front();
     q.pop();
-    if(grid[p.first][p.second]==0)break;
-
     int x = p.first , y = p.second;
-
-    if(dis[x][y]==prev+1){Count[dis[x][y]]++;cout << "new square: " << dis[x][y] << endl;}
-cout << x << y << endl;
-    cout << dis[x][y]  << " " << prev << endl;
-    prev = dis[x][y];
-    // if(x+1<N || y+1<)
-    // if(x+1<N && !visited[x+1][y]){
+    if(grid[x][y]==0)break;
+    C++;
+    if(!visited[x+1][y]){
       visited[x+1][y] = true;
       q.push({x+1,y});
       dis[x+1][y] = dis[x][y] + 1;
-    // }
-    // if(y+1<N && !visited[x][y+1]){
+    }
+    if( !visited[x][y+1]){
       visited[x][y+1] = true;
       q.push({x,y+1});
       dis[x][y+1] = dis[x][y] + 1;
-    // }
-    // if(x+1<N && y+1<N && !visited[x+1][y+1]){
+    }
+    if(!visited[x+1][y+1]){
       visited[x+1][y+1] = true;
       q.push({x+1,y+1});
       dis[x+1][y+1] = dis[x][y] + 1;
-    // }
+    }
   }
-  cout << "___________________________" << endl;
+  n = 3;
+  int s = 2;
+  C--;
+  for(int i=0;C>=0;i++){
+    C -= n + 2*i;
+    Count[i+1]++;
+  }
 }
 
 int main(){
@@ -66,6 +73,6 @@ int main(){
     for(int j=0;j<n;j++)
       if(grid[i][j]==1)BFS(i,j);
 
-  for(int i=2;i<N;i++)
-    if(Count[i]!=0)cout << i << " " << Count[i] << endl;
+  for(int i=2;i<=N;i++)
+    if(Count[i]!=0)out << i << " " << Count[i] << endl;
 }
