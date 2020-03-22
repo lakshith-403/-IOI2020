@@ -5,6 +5,7 @@ int arr[1001];
 int subarr[1001][1001];
 
 int main(){
+  ifstream in("input.in");
   int n,sum;
   cin >> n >> sum;
   for(int i=0;i<n;i++)
