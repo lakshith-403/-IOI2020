@@ -1,6 +1,6 @@
 # -IOI2020
 
-Everything i do in Competitive Programming is here.
+Everything i do to get ready for IOI 2020 is here
 
 this includes:-
 
