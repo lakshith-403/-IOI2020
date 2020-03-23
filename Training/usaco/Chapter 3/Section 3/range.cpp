@@ -63,12 +63,14 @@ int main(){
   int n;
   in >> n;
   N = n;
-  for(int i=0;i<n;i++)
+  for(int i=0;i<n;i++){
+    Count[i]=0;
     for(int j=0;j<n;j++){
       char c;
       in >> c;
       grid[i][j] = c-'0';
     }
+  }
   for(int i=0;i<n;i++)
     for(int j=0;j<n;j++)
       if(grid[i][j]==1)BFS(i,j);

@@ -1,33 +1,36 @@
+/*
+ID: lakshit4
+PROG: game1
+LANG: C++
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std;
-
-ifstream in("game1.in");
-ofstream out("game1.out");
-
-int arr[201];
-int dp[2][201][201];
-
-int getMax(int l,int r,int sum,int ab){
-  if(l==r)return sum;
-  if(dp[ab][l][r]!=0)return sum + dp[ab][l][r];
-  int ans;
-  if(ab==0)
-    ans =  max(getMax(l,r-1,arr[r],1),getMax(l+1,r,arr[l],1));
-  else
-    ans =  max(getMax(l,r-1,0,0),getMax(l+1,r,0,0));
-  dp[ab][l][r] = ans;
-  return sum + ans;
-}
-
-int main(){
-  int n;
-  in >> n;
-  int total = 0;
-  for(int i=0;i<n;i++){
-    in >> arr[i];
-    total += arr[i];
-  }
-  int MAX = getMax(0,n-1,0,0);
-  out << MAX << " " << total-MAX << endl;
+const int maxn = 102;
+int n,d[maxn];
+int sum[maxn][maxn],f[maxn][maxn];
+int main()
+{
+	fstream fin("game1.in",ios::in);
+	fstream fout("game1.out",ios::out);
+	fin>>n;
+	for(int i=1;i<=n;i++)
+	{
+		fin>>d[i];
+		f[i][i]=sum[i][i]=d[i];
+	}
+	for(int i=1;i<n;i++)
+		for(int j=i+1;j<=n;j++)
+			sum[i][j]=sum[i][j-1]+d[j];
+	for(int len=2;len<=n;len++)
+		for(int i=1;i<=n-len+1;i++)
+		{
+			int j=i+len-1;
+			f[i][j]=max(d[i]+sum[i+1][j]-f[i+1][j],d[j]+sum[i][j-1]-f[i][j-1]);
+		}
+	fout<<f[1][n]<<" "<<sum[1][n]-f[1][n]<<endl;
+	fin.close();
+	fout.close();
+	return 0;
 }
