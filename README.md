@@ -18,6 +18,8 @@ The USACO on-line training pages provide hundreds of hours of free instruction a
 Codeforces is a  site where they hosts contests very frequently. That's also very cool and many Olympiad Contestants participate in 'em.
 [Codeforces](https://codeforces.com/)
 
+**I hope this repository helps you at least a little in your journey:)**
+
 Even If you are not  participating in any Olympiad or Contest, Competitive Programming is AWESOME. So try it out.
 
 ![Image](programming_01_0.jpg)
