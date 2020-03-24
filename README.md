@@ -24,3 +24,8 @@ Even If you are not  participating in any Olympiad or Contest, Competitive Progr
 
 ![Image](programming_01_0.jpg)
 
+# Progress
+
+- As of 24 March 2020
+  - USACO Chapter 4.1
+  - Codeforces Rating 1230
