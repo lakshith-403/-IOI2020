@@ -10,16 +10,18 @@ int getSum(int n){
   if(sum>9)return getSum(sum);
   return sum;
 }
-
 int main(){
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
   int q;
   cin >> q;
   while(q--){
     int l,r;
     cin >> l >> r;
     int sum = 0;
-    for(int i=l;i<=r;i++)
-      sum += getSum(i);
+    sum += (int)((r-l+1)/9) * 45;
+    for(int i=0;i<(r-l+1)%9;i++)
+      sum += getSum(l+i);
     cout << sum << "\n";
   }
 }
