@@ -10,6 +10,8 @@ This Includes:
 - National Olympiad Contests (Sri Lanka)
 - Other Exercises
 
+CheckList : https://docs.google.com/spreadsheets/d/1dBASFVXYOiy5VPPn_F1K5yJgqDxiWyu3yk-9bO8gKnc/edit?usp=sharing
+
 The [USACO](https://train.usaco.org/) on-line training pages provide hundreds of hours of free instruction and practice problems to improve your programming and problem-solving skills. It's awesome. You should check it out if you haven't already.
 
 
