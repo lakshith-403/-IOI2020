@@ -10,12 +10,20 @@ int grid[201][201];
 int votes[10001];
 int check[10001][10001];
 int Check[10001];
+int Ans[10001];
 bool gridCheck[10001][10001];
 vector<vector<int>> adjList(10001,vector<int>());
 vector<vector<int>> adjOut(10001,vector<int>());
 
 bool compare(int a,int b){
   return votes[a]<votes[b];
+}
+
+void DFS(int node,int dis){
+  if(Ans[node]!=0)return;
+  Ans[node] = dis;
+  for(int x:adjOut.at(node))
+    DFS(x,dis);
 }
 
 int main(){
@@ -97,7 +105,7 @@ int main(){
           check[adjList.at(pos).at(i)][pos] = dis;
           check[pos][adjList.at(pos).at(i)] = dis;
           Check[adjList.at(pos).at(i)] = dis;
-          // adjOut.at(pos).push_back(i);
+          adjOut.at(pos).push_back(adjList.at(pos).at(i));
           // cout << adjList.at(pos).at(i) <<" <> " << dis << "\n";
           break;
         }
@@ -108,6 +116,7 @@ int main(){
           check[adjList.at(pos).at(i)][pos] = dis;
           check[pos][adjList.at(pos).at(i)] = dis;
           Check[adjList.at(pos).at(i)] = dis;
+          adjOut.at(pos).push_back(adjList.at(pos).at(i));
           // cout << adjList.at(pos).at(i) <<" <> " << dis << "\n";
           break;
         }
@@ -120,4 +129,12 @@ int main(){
     // if(Check[i]==0)Check[i] = dis++;
   // for(int i=1;i<=N;i++)
     // out << Check[i] << "\n";
+  int col = 1;
+  for(int i=1;i<=N;i++){
+    if(Ans[i]!=0)continue;
+    DFS(i,col);
+    col++;
+  }
+  for(int i=1;i<=N;i++)
+    out << Ans[i] << "\n";
 }
