@@ -10,7 +10,14 @@ This Includes:
 - National Olympiad Contests (Sri Lanka)
 - Other Exercises
 
-CheckList : https://docs.google.com/spreadsheets/d/1dBASFVXYOiy5VPPn_F1K5yJgqDxiWyu3yk-9bO8gKnc/edit?usp=sharing
+Checklist by me in reference to the problem archive by Indian Computing Olympiad:
+
+https://docs.google.com/spreadsheets/d/1LFW1RCmv6rj4jUumdxCTsq3bFbJd9Ykp5KmMdFeaAKw/edit?usp=sharing
+
+Problems:
+
+https://www.iarcs.org.in/inoi/online-study-material/problems/index.php
+
 
 The [USACO](https://train.usaco.org/) on-line training pages provide hundreds of hours of free instruction and practice problems to improve your programming and problem-solving skills. It's awesome. You should check it out if you haven't already.
 
