@@ -43,7 +43,32 @@ typedef vector<pd> vpd;
 #define in(a) cin >> a;
 
 int main(){
-
+  int t;
+  cin >> t;
+  while(t--){
+    int n;
+    in(n);
+    ll MAX = INT_MIN;
+    long long sum = 0;
+    bool pos = true;
+    ll temp;
+    in(temp);
+    pos = temp>0;
+    MAX = max(MAX,temp);
+    FORZ(i,n-1){
+      ll temp;
+      in(temp);
+      if(temp>0 != pos){
+        // printl(temp);
+        sum += MAX;
+        MAX = INT_MIN;
+        pos = temp>0;
+      }
+      MAX = max(MAX,temp);
+    }
+    sum+=MAX;
+    printl(sum);
+  }
 }
 
 /*

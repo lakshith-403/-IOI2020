@@ -41,9 +41,49 @@ typedef vector<pd> vpd;
 #define nextl cout << "\n"
 
 #define in(a) cin >> a;
+int n,a,b,c;
+
+void BFS(int src){
+
+}
 
 int main(){
+  int t;
+  cin >> t;
+  while(t--){
+    vector<string> path;
+    set<string> SET;
+    vector<vector<int>> adjList(200001,vector<int>());
+    int n,m,a,b,c;
+    cin >> n >> m >> a >> b >> c;
+    FORZ(i,m){
+      int x,y;
+      cin >> x >> y;
+      adjList.at(x).pb(y);
+      adjList.at(y).pb(x);
+    }
+    bool *visited = new bool[N];
+    for(int i = 0; i < V; i++)
+        visited[i] = false;
+    list<int> Q;
+    visited[src] = true;
+    Q.push_back(src);
+    list<int>::iterator i;
 
+    while(!Q.empty())
+    {
+        src = Q.front();
+        queue.pop_front();
+        for (i = adj[s].begin(); i != adj[s].end(); ++i)
+        {
+            if (!visited[*i])
+            {
+                visited[*i] = true;
+                queue.push_back(*i);
+            }
+        }
+    }
+  }
 }
 
 /*

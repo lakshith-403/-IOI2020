@@ -43,7 +43,32 @@ typedef vector<pd> vpd;
 #define in(a) cin >> a;
 
 int main(){
-
+  int t;
+  cin >> t;
+  while(t--){
+    int n;
+    in(n);
+    if((n/2)%2!=0){
+      printl("NO");
+      continue;
+    }
+    printl("YES");
+    ll I = 2;
+    FORZ(i,n/4){
+      prints(I);
+      I+=2;
+      prints(I);
+      I+=4;
+    }
+    I = 2;
+    FORZ(i,n/4){
+      prints(I-1);
+      I+=2;
+      prints(I+1);
+      I+=4;
+    }
+    printl("");
+  }
 }
 
 /*

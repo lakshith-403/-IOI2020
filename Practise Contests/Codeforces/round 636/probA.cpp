@@ -43,7 +43,22 @@ typedef vector<pd> vpd;
 #define in(a) cin >> a;
 
 int main(){
-
+  int t;
+  cin >> t;
+  while(t--){
+    int n;
+    in(n);
+    long long sum = 1;
+    int P = 1;
+    while(sum<=n){
+      sum += (ll)pow(2,P);
+      P++;
+      if(n%sum==0){
+        printl(n/sum);
+        break;
+      }
+    }
+  }
 }
 
 /*
