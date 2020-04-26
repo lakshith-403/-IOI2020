@@ -50,6 +50,30 @@ inline void io_setup(){
 
 int main(){
   io_setup();
+  int t;
+  in(t);
+  while(t--){
+    ll x,y,a,b;
+    cin >> x >> y >> a >> b;
+    ll cost = 0;
+    if(b<2*a){
+      ll temp = min(x,y);
+      cost += temp*b;
+      int X = x- temp;
+      int Y = y- temp;
+      cost += X*a;
+      cost += Y*a;
+    }else{
+      cost += x*a;
+      cost += y*a;
+    }
+    ll nextCost = 0;
+    ll temp = max(x,y);
+    nextCost += (temp-x)*a;
+    nextCost += (temp-y)*a;
+    nextCost += temp*b;
+    printl(min(cost,nextCost));
+  }
 }
 
 /*

@@ -50,6 +50,35 @@ inline void io_setup(){
 
 int main(){
   io_setup();
+  int T;
+  in(T);
+  while(T--){
+    string S;
+    cin >> S;
+    bool one = false;
+    bool zero = false;
+    FORZ(i,S.length()){
+      if(S[i]=='1')one = true;
+      else if(S[i]=='0')zero = true;
+    }
+    // what_is(one);
+    // what_is(zero);
+    if(one && zero){
+      FORZ(i,S.length()*2){
+        if(i%2==0)cout << 1;
+        else cout << 0;
+      }
+    }else if(one && !zero){
+      FORZ(i,S.length()*2){
+        cout << 1;
+      }
+    }else{
+      FORZ(i,S.length()*2){
+        cout << 0;
+      }
+    }
+    cout << "\n";
+  }
 }
 
 /*

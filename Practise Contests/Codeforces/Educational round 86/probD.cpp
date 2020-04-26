@@ -48,8 +48,46 @@ inline void io_setup(){
   cout.tie(NULL);
 }
 
+bool Nb[200001];
+int M[200001];
+int N[200001];
+
 int main(){
-  io_setup();
+  // io_setup();
+  int n,k;
+  cin >> n >> k;
+  // what_is(n);
+  // what_is(k);
+  for(int i=1;i<=n;i++){cin >>N[i];}
+  for(int i=1;i<=k;i++){cin >> M[i];}
+  // what_is(M[1]);
+  // return 0;
+  // sort(N,N+n);
+  vector<vector<int>> vecList;
+  while(true){
+    vi vec;
+    int i;
+    int sum = 0;
+    for(i=0;i<n;i++){
+      if(Nb[i])continue;
+      what_is(M[N[i]]);
+      if(M[N[i]]-sum<=0)break;
+      Nb[i]=true;
+      vec.pb(N[i]);
+      sum++;
+    }
+    what_is(i);
+    vecList.pb(vec);
+    if(i==n)break;
+  }
+  printl(vecList.size());
+  for(vi vec : vecList){
+    prints(vec.size());
+    for(int x : vec){
+      prints(x);
+    }
+    printl("");
+  }
 }
 
 /*

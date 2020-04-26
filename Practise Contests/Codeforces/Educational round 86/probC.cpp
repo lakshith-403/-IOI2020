@@ -47,9 +47,38 @@ inline void io_setup(){
   cin.tie(NULL);
   cout.tie(NULL);
 }
-
+int mem[201*201];
 int main(){
   io_setup();
+  int t;
+  in(t);
+  while(t--){
+    int a,b,q;
+    cin >> a >> b >> q;
+    ll MAX = a*b;
+    FORZ(i,MAX+1)mem[i]=0;
+    FOR(i,1,MAX){
+      if((i%a)%b!=(i%b)%a)mem[i]=mem[i-1]+1;
+      else mem[i]=mem[i-1];
+      // prints(mem[i]);
+    }
+    // printl("____");
+    while(q--){
+      ll l,r;
+      cin >> l >> r;
+      l--;
+      ll L = 0;
+      L += (l/MAX)*mem[MAX];
+      L += mem[l%MAX];
+      ll R = 0;
+      R += (r/MAX)*mem[MAX];
+      R += mem[r%MAX];
+      // what_is(R);
+      // what_is(L);
+      prints(R-L);
+    }
+    printl("");
+  }
 }
 
 /*
