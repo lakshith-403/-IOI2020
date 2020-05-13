@@ -50,10 +50,6 @@ inline void io_setup(){
 
 int main(){
   io_setup();
-  int t;
-  cin >> t;
-  while(t--){
-  }
 }
 
 /*

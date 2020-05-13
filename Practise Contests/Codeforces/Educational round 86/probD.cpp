@@ -60,9 +60,9 @@ int main(){
   // what_is(k);
   for(int i=1;i<=n;i++){cin >>N[i];}
   for(int i=1;i<=k;i++){cin >> M[i];}
-  // what_is(M[1]);
-  // return 0;
-  // sort(N,N+n);
+  what_is(M[1]);
+  return 0;
+  sort(N,N+n);
   vector<vector<int>> vecList;
   while(true){
     vi vec;

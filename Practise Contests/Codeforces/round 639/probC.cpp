@@ -48,11 +48,35 @@ inline void io_setup(){
   cout.tie(NULL);
 }
 
+int arr[200001];
+int Check[200001];
+int CheckNeg[200001];
+
 int main(){
   io_setup();
   int t;
   cin >> t;
   while(t--){
+    int n;
+    cin >> n;
+    vector<int> vec;
+    bool flag = false;
+    for(int i=0;i<n;i++){
+      int a;
+      cin >> a;
+      if(i+a<0){
+          int temp = ((i+a)%n)*-1;
+          if(CheckNeg[temp]==t+1)flag = true;
+          CheckNeg[temp]=t+1;
+      }else{
+          if(Check[((i+a)%n)]==t+1)flag = true;
+          Check[((i+a)%n)]=t+1;
+      }
+    }
+    if(!flag){printl("YES")}
+    else{printl("NO");}
+    
+    
   }
 }
 

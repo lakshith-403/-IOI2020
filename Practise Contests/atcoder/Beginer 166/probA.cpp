@@ -50,10 +50,10 @@ inline void io_setup(){
 
 int main(){
   io_setup();
-  int t;
-  cin >> t;
-  while(t--){
-  }
+  string s;
+  cin >> s;
+  if(s=="ABC")cout << "ARC" << "\n";
+  else cout << "ABC" << "\n";
 }
 
 /*

@@ -26,6 +26,7 @@ typedef vector<pd> vpd;
 #define eb emplace_back
 #define f first
 #define s second
+#define ten5 100001
 #define sz(x) (int)x.size()
 #define all(x) begin(x), end(x)
 #define FOR(i,a,b) for(int i=(a);i<=(b);i++)
@@ -47,12 +48,43 @@ inline void io_setup(){
   cin.tie(NULL);
   cout.tie(NULL);
 }
+int sumArr[ten5+1];
+pi getLower(int n,int l){
+  int i = 1;
+  sumArr[0]=0;
+  for(i;i<n;i++){
+    sumArr[i] = sumArr[i-1]+(2*(n-i));
+    if(sumArr[i]>l)break;
+  }
+  if(sumArr[i]<l && i==n)sumArr[++i]=sumArr[i-1]++;
+  else i--;
+  return {i,sumArr[i]};
+}
 
 int main(){
   io_setup();
   int t;
-  cin >> t;
+  in(t);
   while(t--){
+    int n,l,r;
+    cin >> n >> l >> r;
+    pi lower = getLower(n,l);
+    vi ans;
+    int start = 0;
+    for(lower.f;lower.f<n;lower.f++){
+      for(int i=lower.f+1;i<=n;i++){
+        if(lower.s>r){lower.f=n;break;}
+        if(lower.s>=l)
+        ans.pb(lower.f);
+        lower.s++;
+        if(lower.s>r){lower.f=n;break;}
+        if(lower.s>=l)
+        ans.pb(i);
+        lower.s++;
+      }
+    }
+    for(int x:ans)prints(x);
+    cout << "\n";
   }
 }
 
@@ -63,3 +95,4 @@ int main(){
    :  :
 .-'    `-.  ~LaKsHiTh_
 */
+

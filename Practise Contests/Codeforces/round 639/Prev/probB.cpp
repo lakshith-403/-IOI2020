@@ -48,12 +48,52 @@ inline void io_setup(){
   cout.tie(NULL);
 }
 
+int MIN = INT_MAX;
+int MAX = INT_MAX;
+
+vector<vi> adjList(100001,vi());
+int visited[100001];
+vi startPoints;
+
 int main(){
   io_setup();
-  int t;
-  cin >> t;
-  while(t--){
+  int n;
+  cin >> n;
+  FORZ(i,n-1){
+    int a,b;
+    cin >> a >> b;
+    adjList.at(a).pb(b);
+    adjList.at(b).pb(a);
   }
+  FORZ(i,n+1){
+    if(adjList.at(i).size()==1)startPoints.pb(i);
+  }
+  for(int src : startPoints){
+    what_is(src);
+    queue<pi> Q;
+    Q.push({src,0});
+    while(!Q.empty()){
+      pi p = Q.front();
+      if(adjList[p.f].size()==1&&p.f!=src){
+        what_is(p.f);
+        if(p.s%2==0){
+          MIN = max(MIN,1);
+          MAX = min(MAX,p.s);
+        }else{
+          MIN = max(MIN,3);
+          MAX = min(MAX,p.s);
+        }
+      }
+      Q.pop();
+      for(int node : adjList[p.f])
+        if(visited[node]!=src){
+          visited[node]=src;
+          Q.push({node,p.s+1});
+        }
+    }
+  }
+  prints(MIN);
+  printl(MAX);
 }
 
 /*

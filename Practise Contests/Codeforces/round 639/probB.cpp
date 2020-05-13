@@ -47,12 +47,30 @@ inline void io_setup(){
   cin.tie(NULL);
   cout.tie(NULL);
 }
-
+int mem[30000];
 int main(){
   io_setup();
   int t;
   cin >> t;
+  
+  for(int i=1;i<30000;i++){
+    mem[i] = mem[i-1] + (i*2) + (i-1);
+  }
   while(t--){
+    int n;
+    cin >> n;
+    int Count = 0;
+    while(n>=2){
+      int val = 0;
+      for(int i=1;i<30000;i++){
+        if(mem[i]>n)break;
+        val = mem[i];
+      }
+//       what_is(val);
+      n-=val;
+      Count ++;
+    }
+    printl(Count);
   }
 }
 

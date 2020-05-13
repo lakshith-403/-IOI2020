@@ -53,6 +53,21 @@ int main(){
   int t;
   cin >> t;
   while(t--){
+    int n;
+    cin >> n;
+    vector<int> ans;
+    for(int i=1;i<=n;i*=2){
+      ans.pb(i);
+      n-=i;
+    }
+    if(n!=0)
+    ans.pb(n);
+    sort(all(ans));
+    printl(sz(ans)-1);
+    for(int i=1;i<sz(ans);i++){
+      prints(ans.at(i)-ans.at(i-1));
+    }
+    printl("");
   }
 }
 

@@ -47,12 +47,34 @@ inline void io_setup(){
   cin.tie(NULL);
   cout.tie(NULL);
 }
+int arr[200001];
+
+int n;
+int solve(int pos,int Count){
+  if(pos>n)return Count; 
+  Count ++;
+  int MAX = INT_MIN;
+  for(int j=2;j<=n;j++){
+    if(pos*j>n)break;
+    if(arr[pos*j]>arr[pos]){MAX = max(MAX,solve(pos*j,Count));}
+  }
+  return max(MAX,Count);;
+}
 
 int main(){
   io_setup();
   int t;
   cin >> t;
   while(t--){
+    cin >> n;
+    FOR(i,1,n)cin >> arr[i];
+    
+    int maxCount = 0;
+    for(int i=1;i<=n;i++){
+//           what_is(i);
+          maxCount = max(maxCount,solve(i,0));
+    }
+    cout << maxCount << "\n";
   }
 }
 

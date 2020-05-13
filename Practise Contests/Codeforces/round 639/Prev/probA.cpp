@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -47,12 +48,50 @@ inline void io_setup(){
   cin.tie(NULL);
   cout.tie(NULL);
 }
+string r;
+std::string toBinary(int n)
+{
+    r=(n%2==0 ?"0":"1")+r;
+    if (n / 2 != 0) {
+        toBinary(n / 2);
+    }
+    return r;
+}
 
 int main(){
   io_setup();
   int t;
   cin >> t;
   while(t--){
+    int n;
+    in(n);
+    int MAX = -1;
+    int a,prev;
+    cin >> a;
+    prev = a;
+    FORZ(i,n-1){
+      cin >> a;
+      if(a>=prev){prev=a;continue;}
+      int dif = prev-a;
+//       printl("#");
+//       what_is(dif);
+//       if(MAX!=-1)
+//       dif -= (int)pow(2,MAX+1)-1;
+//       what_is(dif);
+//       if(dif<=0){
+//         prev = a+1;
+//         continue;
+//       }
+//       what_is(dif);
+      r="";
+      string temp = toBinary(dif);
+//       what_is(temp);
+      int lg = temp.length()-1;
+//       what_is(lg);
+      MAX = max(MAX,lg);
+//       what_is(prev);
+    }
+    printl(++MAX);
   }
 }
 

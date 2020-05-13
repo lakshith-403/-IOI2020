@@ -48,12 +48,47 @@ inline void io_setup(){
   cout.tie(NULL);
 }
 
+int arr[100001];
+
+ll gcd(ll a, ll b) { 
+    if (a == 0) 
+        return b; 
+    return gcd(b % a, a); 
+} 
+
+ ll lcm(ll a, ll b)  
+ {  
+    return (a*b)/gcd(a, b);  
+ }
+
+ll findGCD(vector<ll> vec, int n) { 
+    ll result = vec[0]; 
+    for (int i = 1; i < n; i++) { 
+        result = gcd(vec[i], result); 
+  
+        if(result == 1) 
+        { 
+           return 1; 
+        } 
+    } 
+    return result; 
+}
+
 int main(){
   io_setup();
-  int t;
-  cin >> t;
-  while(t--){
+  int n;
+  cin >>n ;
+  ll total = 0;
+  for(int i=0;i<n;i++){
+    cin >> arr[i];
   }
+  if(n==1){cout << arr[0];return 0;}
+  vector<ll> vec;
+  for(int i=0;i<n;i++){
+    for(int j=i+1;j<n;j++)
+      vec.pb(lcm(arr[i],arr[j]));
+  }
+  cout << findGCD(vec,n) << "\t";
 }
 
 /*

@@ -53,6 +53,20 @@ int main(){
   int t;
   cin >> t;
   while(t--){
+    int n;
+    int k;
+    cin >> n >> k;
+    ll total = n;
+    if(n%2==0)total += 2;
+    if(n%2==1){
+      int index = 0;
+      FOR(i,2,n){
+        if(n%i==0){index = i;break;}
+      }
+      total += index;
+    }
+    total += ((ll)k-1)*2;
+    cout << total << "\n";
   }
 }
 

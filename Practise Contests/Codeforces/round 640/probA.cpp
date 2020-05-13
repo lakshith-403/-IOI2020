@@ -48,11 +48,25 @@ inline void io_setup(){
   cout.tie(NULL);
 }
 
+void solve(){
+   int n;
+  cin >> n;
+  vector<int> vec;
+   while(n>0){
+       int mult = (int)log10(n);
+       if(mult==0)break;
+       vec.pb(
+   } 
+   if(n==0)cout << Count << "\n";
+   else cout << Count+1 << "\n";
+}
+
 int main(){
   io_setup();
   int t;
   cin >> t;
   while(t--){
+      solve();
   }
 }
 
