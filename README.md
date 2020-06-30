@@ -1,30 +1,21 @@
 # -IOI2020
 
-Everything i do to get ready for **International Olympiad Of Informatics 2020** is here.
-I update this repo on the go and will update README.md for special Commits.
+**Useful links (Except the last one)**
 
-This Includes:
+[Indian Computing Olympiad Checklist](https://docs.google.com/spreadsheets/d/1LFW1RCmv6rj4jUumdxCTsq3bFbJd9Ykp5KmMdFeaAKw/edit?usp=sharing)
 
-- USACO Training
-- Codeforces Contests
-- National Olympiad Contests (Sri Lanka)
-- Other Exercises
+[Iarcs problems](https://www.iarcs.org.in/inoi/online-study-material/problems/index.php)
 
-Checklist by me in reference to the problem archive by Indian Computing Olympiad:
+[USACO training pages](https://train.usaco.org/)
 
-https://docs.google.com/spreadsheets/d/1LFW1RCmv6rj4jUumdxCTsq3bFbJd9Ykp5KmMdFeaAKw/edit?usp=sharing
+[Codeforces](https://codeforces.com/)
 
-Problems:
+[Croation Open Competition in informatics](https://hsin.hr/coci/)
 
-https://www.iarcs.org.in/inoi/online-study-material/problems/index.php
+[Checklist for OI problems](https://oichecklist.pythonanywhere.com/)
 
+[Supervision training list from Mostafa Saad](https://docs.google.com/spreadsheets/d/1-n9Fnvhsnvsqh-IerE_yyIshw5RUNer_7EjwF_GW-TA/edit#gid=1496864317)
 
-The [USACO](https://train.usaco.org/) on-line training pages provide hundreds of hours of free instruction and practice problems to improve your programming and problem-solving skills. It's awesome. You should check it out if you haven't already.
+[Junior training sheet from Mostafa Saad](https://docs.google.com/spreadsheets/d/1iJZWP2nS_OB3kCTjq8L6TrJJ4o-5lhxDOyTaocSYc-k/htmlview?pru=AAABcwWIUTc*mHnSLFgcugXZXUpHv4DCDQ#)
 
-
-[Codeforces](https://codeforces.com/) is a  site where they hosts contests very frequently. That's also very cool and many Olympiad Contestants participate in 'em.
-
-**I hope this repository helps you at least a little in your journey:)**
-
-Even If you are not  participating in any Olympiad or Contest, Competitive Programming is AWESOME. So try it out.
-
+[My discord server](https://discord.gg/wNRd6NR)  *(Kinda useless but love to see a new member :) )*
