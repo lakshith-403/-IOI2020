@@ -2,6 +2,12 @@
 
 using namespace std;
 
+inline void io_setup(){
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+  cout.tie(NULL);
+}
+
 inline int getMid(int s,int e){return s+(e-s)/2;}
 
 int getMin(int* st,int ss,int se,int qs,int qe,int si){
@@ -30,6 +36,7 @@ int* createMinSeg(int* arr ,int n){
 }
 
 int main(){
+//   io_setup();
   int n;
   cin >> n;
   int arr[n];
