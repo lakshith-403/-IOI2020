@@ -33,10 +33,10 @@ typedef vector<pd> vpd;
 #define FORZ(i,a) for(int i=0;i<(a);i++)
 #define FORZi(i,a) for(int i=(a)-1;i>=0;i--)
 #define trav(a,x) for (auto& a: x)
-#define what_is(x) cout << #x << " is " << x << "\n"
+#define what_is(x) cout << #x << " is " << x << "\n";
 
-#define printl(a) cout << a << "\n"
-#define prints(a) cout << a << " "
+#define printl(a) cout << a << "\n";
+#define prints(a) cout << a << " ";
 #define printall(x) FORZ(i,sz(x))prints(x[i])
 #define nextl cout << "\n"
 
@@ -67,15 +67,12 @@ inline void io_setup(){
   cout.tie(NULL);
 }
 
-void solve(int t){
-	
-}
-
 int main(){
   io_setup();
   int t;
   cin >> t;
-  while(t--)solve(t+1);
+  while(t--){
+  }
 }
 
 /*
