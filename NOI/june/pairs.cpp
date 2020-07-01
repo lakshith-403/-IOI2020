@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+ #include <bits/stdc++.h>
+
+#include <chrono> 
+using namespace std::chrono;
 
 using namespace std;
 
@@ -33,10 +36,10 @@ typedef vector<pd> vpd;
 #define FORZ(i,a) for(int i=0;i<(a);i++)
 #define FORZi(i,a) for(int i=(a)-1;i>=0;i--)
 #define trav(a,x) for (auto& a: x)
-#define what_is(x) cout << #x << " is " << x << "\n"
+#define what_is(x) cout << #x << " is " << x << "\n";
 
-#define printl(a) cout << a << "\n"
-#define prints(a) cout << a << " "
+#define printl(a) cout << a << "\n";
+#define prints(a) cout << a << " ";
 #define printall(x) FORZ(i,sz(x))prints(x[i])
 #define nextl cout << "\n"
 
@@ -67,14 +70,42 @@ inline void io_setup(){
   cout.tie(NULL);
 }
 
+#include <ext/pb_ds/assoc_container.hpp> 
+#include <ext/pb_ds/tree_policy.hpp> 
+using namespace __gnu_pbds; 
+  
+#define ordered_set tree<pi, null_type,less<pi>, rb_tree_tag,tree_order_statistics_node_update> 
+  
+
+vpi vec;
+ordered_set s;
+
 void solve(int t){
-	
+  int n;
+  cin >> n;
+  auto start = high_resolution_clock::now();
+  FORZ(i,n){
+    pi p;
+//     cin >> p.f;
+    p.f = rand()%n;
+    p.s = i;
+    vec.pb(p);
+  }
+  ll ans = 0;
+  for(int i=n-1;i>=0;i--){
+    ll Count = s.order_of_key(vec[i]);
+    ans += (ll)Count;
+    s.insert({vec[i].f*2,vec[i].s});
+  }
+  auto stop = high_resolution_clock::now();
+  auto duration = duration_cast<microseconds>(stop - start); 
+  cout << (double)duration.count()/1000000.0 <<  " seconds" << endl;
+  cout << ans << "\n";
 }
 
 int main(){
   io_setup();
-  int t;
-  cin >> t;
+  int t=1;
   while(t--)solve(t+1);
 }
 
@@ -85,3 +116,4 @@ int main(){
    :  :
 .-'    `-.  ~LaKsHiTh_
 */
+

@@ -68,7 +68,11 @@ inline void io_setup(){
 }
 
 void solve(int t){
-	
+  ll a,b,n,m;
+  cin >> a >> b >> n >> m;
+  bool b1 = min(a,b)>=m;
+  if(a+b-n>=m&&b1)printl("YES");
+  else printl("NO");
 }
 
 int main(){

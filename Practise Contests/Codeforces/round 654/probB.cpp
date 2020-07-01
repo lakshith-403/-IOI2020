@@ -67,8 +67,22 @@ inline void io_setup(){
   cout.tie(NULL);
 }
 
+inline ll min(ll a,ll b){return a<b?a:b;}
+
 void solve(int t){
-	
+	ll n,r;
+ cin >> n >> r;
+ int R = r;
+ r = min(r,n-1);
+ ll temp = 0;
+ if(r%2==1)temp=r,r--;
+ ll sum = (r/2)*(2+(r-1));
+ sum += temp;
+//  what_is(r);
+ if(temp!=0)
+ r++;
+ if(R>=n)sum++;
+ cout << sum << "\n";
 }
 
 int main(){

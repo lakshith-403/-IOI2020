@@ -26,7 +26,6 @@ typedef vector<pd> vpd;
 #define eb emplace_back
 #define f first
 #define s second
-#define ten5 100001
 #define sz(x) (int)x.size()
 #define all(x) begin(x), end(x)
 #define FOR(i,a,b) for(int i=(a);i<=(b);i++)
@@ -34,58 +33,54 @@ typedef vector<pd> vpd;
 #define FORZ(i,a) for(int i=0;i<(a);i++)
 #define FORZi(i,a) for(int i=(a)-1;i>=0;i--)
 #define trav(a,x) for (auto& a: x)
-#define what_is(x) cout << #x << " is " << x << "\n";
+#define what_is(x) cout << #x << " is " << x << "\n"
 
-#define printl(a) cout << a << "\n";
-#define prints(a) cout << a << " ";
+#define printl(a) cout << a << "\n"
+#define prints(a) cout << a << " "
 #define printall(x) FORZ(i,sz(x))prints(x[i])
 #define nextl cout << "\n"
 
 #define in(a) cin >> a;
+
+// === Debug macro starts here ===
+int recur_depth = 0;
+#ifdef DEBUG
+#define dbg(x) {++recur_depth; auto x_=x; --recur_depth; cerr<<string(recur_depth, '\t')<<"\e[91m"<<__func__<<":"<<__LINE__<<"\t"<<#x<<" = "<<x_<<"\e[39m"<<endl;}
+#else
+#define dbg(x)
+#endif
+template<typename Ostream, typename Cont>
+typename enable_if<is_same<Ostream,ostream>::value, Ostream&>::type operator<<(Ostream& os,  const Cont& v){
+  os<<"[";
+  for(auto& x:v){os<<x<<", ";}
+  return os<<"]";
+}
+template<typename Ostream, typename ...Ts>
+Ostream& operator<<(Ostream& os,  const pair<Ts...>& p){
+  return os<<"{"<<p.first<<", "<<p.second<<"}";
+}
+// === Debug macro ends here ===
 
 inline void io_setup(){
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
   cout.tie(NULL);
 }
-int sumArr[ten5+1];
-pi getLower(int n,int l){
-  int i = 1;
-  sumArr[0]=0;
-  for(i;i<n;i++){
-    sumArr[i] = sumArr[i-1]+(2*(n-i));
-    if(sumArr[i]>l)break;
-  }
-  if(sumArr[i]<l && i==n)sumArr[++i]=sumArr[i-1]++;
-  else i--;
-  return {i,sumArr[i]};
+
+void solve(int t){
+	int n;
+ cin >> n;
+ if(n==1){cout << 1 << "\n";return;}
+ if(n==3){cout << 2 << "\n";return;}
+ if(n%2==0)printl(n/2);
+ else printl((n-1)/2+1);
 }
 
 int main(){
   io_setup();
   int t;
-  in(t);
-  while(t--){
-    int n,l,r;
-    cin >> n >> l >> r;
-    pi lower = getLower(n,l);
-    vi ans;
-    int start = 0;
-    for(lower.f;lower.f<n;lower.f++){
-      for(int i=lower.f+1;i<=n;i++){
-        if(lower.s>r){lower.f=n;break;}
-        if(lower.s>=l)
-        ans.pb(lower.f);
-        lower.s++;
-        if(lower.s>r){lower.f=n;break;}
-        if(lower.s>=l)
-        ans.pb(i);
-        lower.s++;
-      }
-    }
-    for(int x:ans)prints(x);
-    cout << "\n";
-  }
+  cin >> t;
+  while(t--)solve(t+1);
 }
 
 /*
@@ -95,4 +90,3 @@ int main(){
    :  :
 .-'    `-.  ~LaKsHiTh_
 */
-

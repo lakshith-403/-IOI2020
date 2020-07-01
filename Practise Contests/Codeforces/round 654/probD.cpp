@@ -68,7 +68,39 @@ inline void io_setup(){
 }
 
 void solve(int t){
-	
+	int n,k;
+ cin >> n >> k;
+ 
+//  if(k==0){
+//    cout << 0 << "\n";
+//    for(int i=0;i<n;i++){
+//    for(int j=0;j<n;j++)cout << 0;
+//    cout << "\n";
+//  }
+//  return;
+// }
+//  
+ 
+ int f = (k%n==0?0:1);
+ int r[n],c[n];
+ int expR[n],expC[n];
+ for(int i=0;i<n;i++)r[i]=0,c[i]=0;
+ for(int i=0;i<n;i++)expR[i]=k/n;
+ for(int i=0;i<k%n;i++)expR[i]++;
+ for(int i=0;i<n;i++)expC[i]=k/n;
+ for(int i=0;i<k%n;i++)expC[i]++;
+ 
+ int ans[n][n];
+ for(int i=0;i<n;i++)
+   for(int j=0;j<n;j++){
+      if(r[i]<expR[i] && c[j]<expC[j])ans[i][j]=1,r[i]++,c[j]++;
+      else ans[i][j] = 0;
+  }
+cout << f*f*2 << "\n";
+ for(int i=0;i<n;i++){
+   for(int j=0;j<n;j++)cout << ans[i][j];
+   cout << "\n";
+ }
 }
 
 int main(){
