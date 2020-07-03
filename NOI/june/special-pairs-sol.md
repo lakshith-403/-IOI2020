@@ -23,7 +23,9 @@ In reference to the given image,
 
 **no of red elements before <img src="https://render.githubusercontent.com/render/math?math=j"> = total no of elements before <img src="https://render.githubusercontent.com/render/math?math=j"> - blue elements before <img src="https://render.githubusercontent.com/render/math?math=i"> = <img src="https://render.githubusercontent.com/render/math?math=(j-l) - (i-l) = j-l">**
 
-As you can see this merging is the exact merging function in merge sort with an adaptation to our problem. About the Dividing part, We can recursively divide the input array in to two halves in each step while the size becomes 1. As array of size 1 is already sorted, we can start merging. And this is also the exact same thing happening in merge sort. Therefore we can just write a merge sort and add some additional code in the merge function.
+As you can see this merging is the exact merging function in merge sort with an adaptation to our problem. About the Dividing part, We can recursively divide the input array in to two halves in each step until the size becomes 1. As array of size 1 is already sorted, we can start merging. And this is also the exact same thing happening in merge sort. Therefore we can just write a merge sort and add some additional code in the merge function.
+
+
 
 pseudo code:
 ```
