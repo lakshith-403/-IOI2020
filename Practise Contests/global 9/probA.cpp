@@ -68,7 +68,18 @@ inline void io_setup(){
 }
 
 void solve(int t){
-
+  int n;
+  cin >> n;
+  int arr[n];
+  for(int i=0;i<n;i++){
+    cin >> arr[i];
+    if(arr[i]<0)arr[i]*=-1;
+  }
+  for(int i=0;i<n;i++){
+    if(i%2==0)prints(arr[i]*-1);
+    else prints(arr[i]);
+  }
+  cout << "\n"; 
 }
 
 int main(){

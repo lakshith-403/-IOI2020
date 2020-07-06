@@ -68,7 +68,57 @@ inline void io_setup(){
 }
 
 void solve(int t){
-
+  int n,m;
+  cin >> n >> m ;
+  int arr[n+2][m+1];
+  for(int i=1;i<=n;i++){
+    for(int j=1;j<=m;j++){
+      cin >> arr[i][j];
+    }
+  }
+  
+  for(int i=1;i<=n;i++)
+    for(int j=1;j<=m;j++){
+      if(arr[i][j]==0)continue;
+      int nb = 0;
+      if(i!=1)nb++;
+      if(i!=n)nb++;
+      if(j!=1)nb++;
+      if(j!=m)nb++;
+      if(nb<arr[i][j]){printl("NO");return;}
+      nb = 0;
+      if(i!=1 && arr[i-1][j]!=0)nb++;
+      if(i!=n && arr[i+1][j]!=0)nb++;
+      if(j!=1 && arr[i][j-1]!=0)nb++;
+      if(j!=m && arr[i][j+1]!=0)nb++;
+      
+      if(nb==arr[i][j])continue;
+      
+      nb = arr[i][j]-nb;
+      if(i!=1 && arr[i-1][j]==0 && nb!=0)arr[i-1][j]++,nb--;
+      if(i!=n && arr[i+1][j]==0&& nb!=0)arr[i+1][j]++,nb--;
+      if(j!=1 && arr[i][j-1]==0&& nb!=0)arr[i][j-1]++,nb--;
+      if(j!=m && arr[i][j+1]==0&& nb!=0)arr[i][j+1]++,nb--;
+    }
+    
+    
+    for(int i=1;i<=n;i++)
+    for(int j=1;j<=m;j++){
+      if(arr[i][j]==0)continue;
+      int nb = 0;
+      if(i!=1 && arr[i-1][j]!=0)nb++;
+      if(i!=n && arr[i+1][j]!=0)nb++;
+      if(j!=1 && arr[i][j-1]!=0)nb++;
+      if(j!=m && arr[i][j+1]!=0)nb++;
+      if(nb>arr[i][j])arr[i][j]=nb;
+    }
+    
+  printl("YES");
+  for(int i=1;i<=n;i++){
+    for(int j=1;j<=m;j++)
+      cout << arr[i][j] << " ";
+    cout << "\n";
+  }
 }
 
 int main(){

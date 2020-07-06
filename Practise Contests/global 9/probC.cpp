@@ -68,7 +68,20 @@ inline void io_setup(){
 }
 
 void solve(int t){
-
+  int n = 4;
+  cin >> n;
+  int arr[n];
+  for(int i=0;i<n;i++){
+    cin >> arr[i];
+  }
+  if(arr[0]>arr[n-1])printl("NO");
+  else printl("YES");
+//   for(int i=0;i<n;i++)
+//     for(int j=0;j<n;j++)
+//       for(int k=0;k<n;k++)
+//         for(int l=0;l<n;l++)
+//           if(i==j || i==k || i==l || j==k || j==l || k==l)continue;
+//           else cout << i+1 << " " << j+1 << " " << k+1 << " " << l+1 << " \n";
 }
 
 int main(){

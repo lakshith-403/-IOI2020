@@ -67,8 +67,42 @@ inline void io_setup(){
   cout.tie(NULL);
 }
 
+int Count[10000];
 void solve(int t){
-
+  int n;
+  cin >> n;
+  for(int i=0;i<2*n;i++)Count[i]=0;
+  int arr[n];
+  arr[0]=-1;
+  arr[n+1]=INT_MAX;
+  for(int i=1;i<=n;i++)cin >> arr[i],Count[arr[i]]++;
+  set<int> st;
+  for(int i=0;i<=n*2;i++)st.insert(i);
+  for(int i=1;i<=n;i++){
+    st.erase(arr[i]);
+//     cout << *st.begin() << "\n";
+  }
+  vector<int> ans;
+  for(int k=0;k<2*n;k++){
+    int mex = *st.begin();
+//     what_is(mex);
+    for(int i=1;i<=n;i++){
+      if(mex<arr[i+1]){
+        st.erase(mex);
+        Count[mex]++;
+        Count[arr[i]]--;
+        if(Count[arr[i]]==0)st.insert(arr[i]);
+        arr[i]=mex;
+        ans.pb(i);
+        break;
+      }
+    }
+  }cout << "++" << "\n";
+  for(int i=1;i<=n;i++)prints(arr[i]);
+  cout << "\n";
+  cout << ans.size() << "\n";
+  for(int x:ans)prints(x);
+  cout << "\n";
 }
 
 int main(){
