@@ -33,7 +33,9 @@ typedef vector<pd> vpd;
 #define FORZ(i,a) for(int i=0;i<(a);i++)
 #define FORZi(i,a) for(int i=(a)-1;i>=0;i--)
 #define trav(a,x) for (auto& a: x)
-#define what_is(x) cout << #x << " is " << x << "\n";
+#define what_is(x) cout << #x << " is " << x << "\n"
+#define shit cout << "shit" << "\n";
+#define fuck cout << "fuck" << "\n";
 
 #define printl(a) cout << a << "\n"
 #define prints(a) cout << a << " "
