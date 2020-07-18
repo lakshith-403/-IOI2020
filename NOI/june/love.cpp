@@ -2,76 +2,42 @@
 
 using namespace std;
 
-typedef long long ll;
-typedef long double ld;
-typedef double db;
-typedef string str;
-
-typedef pair<int,int> pi;
-typedef pair<ll,ll> pl;
-typedef pair<db,db> pd;
-
-typedef vector<int> vi;
-typedef vector<ll> vl;
-typedef vector<db> vd;
-typedef vector<str> vs;
-typedef vector<pi> vpi;
-typedef vector<pl> vpl;
-typedef vector<pd> vpd;
-
-#define ft front()
-#define bk back()
-#define pf push_front
-#define pb push_back
-#define eb emplace_back
-#define f first
-#define s second
-#define sz(x) (int)x.size()
-#define all(x) begin(x), end(x)
-#define FOR(i,a,b) for(int i=(a);i<=(b);i++)
-#define FORi(i,a,b) for(int i=(a);i>=(b);i--)
-#define FORZ(i,a) for(int i=0;i<(a);i++)
-#define FORZi(i,a) for(int i=(a)-1;i>=0;i--)
-#define trav(a,x) for (auto& a: x)
-#define what_is(x) cout << #x << " is " << x << "\n";
-
-#define printl(a) cout << a << "\n";
-#define prints(a) cout << a << " ";
-#define printall(x) FORZ(i,sz(x))prints(x[i])
-#define nextl cout << "\n"
-
-#define in(a) cin >> a;
-
-// === Debug macro starts here ===
-int recur_depth = 0;
-#ifdef DEBUG
-#define dbg(x) {++recur_depth; auto x_=x; --recur_depth; cerr<<string(recur_depth, '\t')<<"\e[91m"<<__func__<<":"<<__LINE__<<"\t"<<#x<<" = "<<x_<<"\e[39m"<<endl;}
-#else
-#define dbg(x)
-#endif
-template<typename Ostream, typename Cont>
-typename enable_if<is_same<Ostream,ostream>::value, Ostream&>::type operator<<(Ostream& os,  const Cont& v){
-  os<<"[";
-  for(auto& x:v){os<<x<<", ";}
-  return os<<"]";
-}
-template<typename Ostream, typename ...Ts>
-Ostream& operator<<(Ostream& os,  const pair<Ts...>& p){
-  return os<<"{"<<p.first<<", "<<p.second<<"}";
-}
-// === Debug macro ends here ===
-
 inline void io_setup(){
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
   cout.tie(NULL);
 }
+
+/*these variables are used to store number of occurunces of each letter.
+  Note that only neccessary letters are Counted.
+  i.e only the no of 'o' letters after 'l' are counted. (If there is a letter 'o' before 'l' it doesn't matter because we can't use it to make a word)
+  Letter 'l' is common for both 'love' and  'like'. Therefore 'l' is counted twice.
+*/
+
 int l,o,v,k,i,e,li;
+
 void solve(int t){
   int n;
   cin >> n;
   string s;
   cin >> s;
+  /*
+  Iterate through the string doing the following
+  If the letter is 'l' increment the both l counts (l and li)
+  If the letter is 'o' and l!=0 (there is a 'l' before 0) increment 'o' Count and decrement 'l' Count.(We used this 'l' to make 'lo')
+  If the letter is 'v' and o!=0 increment v and decrement o (same as above)
+  Do the same thing for the letters 'i' and 'k' but starting from variable li instead of l
+  Occurunce of e is the tricky part. If we find 'e' and v!=0 that means we can create a ful word. So we can decrement v and increment e as before.
+  But there is a problem. We counted l twice for two words. If we finish a word now it means that we completely used up a 'l'. So we have to 
+  remove it from the counts of the other word.
+  So we can simply decrement li variable. But it could be also used for other letters 'i' and 'k'. So what we have to do is if(li!=0) decrement it. If it's zero proceed to the next letter 
+  and decrement it. If it's also zero proceed to the next and decrement it. 
+  Doing the same for the word 'like' will complete the solution.
+  e count after the loop is the answer.
+  
+  If it's not clear to you about the need to manage two 'l' counts, think about this example
+                                  'loike'
+  */
   for(char c:s){
     if(c=='l')l++,li++;
     else if(c=='o'&&l!=0)l--,o++;
