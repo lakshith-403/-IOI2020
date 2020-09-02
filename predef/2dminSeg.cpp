@@ -36,7 +36,7 @@ void create2dMinSeg(int ss,int se,int si){
     int mid = (ss+se)/2;
     create2dMinSeg(ss,mid,si*2+1);
     create2dMinSeg(mid+1,se,si*2+2);
-    //idk F is happening here but this merge should be done
+    //idk tf is happening here but this merge has to be done
     for(int i=0;i<st[si].size();i++)
       st.at(si).at(i) = min(st[si*2+1][i],st[si*2+2][i]);
   }

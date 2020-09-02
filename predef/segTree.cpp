@@ -1,3 +1,7 @@
+/*
+Segment tree for Range sum Query
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std;

@@ -1,3 +1,7 @@
+/*
+Segment tree for Range minimum Query
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -36,7 +40,7 @@ int* createMinSeg(int* arr ,int n){
 }
 
 int main(){
-//   io_setup();
+  io_setup();
   int n;
   cin >> n;
   int arr[n];
