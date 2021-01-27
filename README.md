@@ -18,4 +18,3 @@
 
 [Junior training sheet from Mostafa Saad](https://docs.google.com/spreadsheets/d/1iJZWP2nS_OB3kCTjq8L6TrJJ4o-5lhxDOyTaocSYc-k/htmlview?pru=AAABcwWIUTc*mHnSLFgcugXZXUpHv4DCDQ#)
 
-[My discord server](https://discord.gg/wNRd6NR)  *(Kinda useless but love to see a new member :) )*
